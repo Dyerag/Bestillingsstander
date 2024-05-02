@@ -1,0 +1,51 @@
+body {
+    background-color: lavender;
+    margin: 10mm;
+    width: 10m;
+}
+
+#cart {
+    border-color: black;
+    border: solid;
+    border-width: 1px;
+}
+
+#customer {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height: 15mm;
+    /* position:sticky; */
+
+}
+
+#customer>div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#number {
+    background-color:darkslateblue;
+    color: white;
+    padding: 10px;
+}
+
+#orderbtn {
+    height: 12mm;
+    width: 40mm;
+    color: whitesmoke;
+    background-color: rgb(2, 194, 2);
+    border:none;
+}
+
+#orderbtn 
+
+#orderbtn>h3 {
+    margin: 0;
+}
+
+nav {
+    border: solid;
+    border-width: 2px;
+}
