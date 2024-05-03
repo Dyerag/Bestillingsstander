@@ -1,11 +1,12 @@
 body {
-    background-color: lavender;
-    margin: 10mm;
-    width: 38cm;
-    height: ;
+
+    margin: 5mm;
+    width: 1500px;
+    height: 17cm;
 }
 
-#customer {
+/*The base styling for the customer number and order button */
+#top {
     display: flex;
     justify-content: end;
     align-items: center;
@@ -13,14 +14,15 @@ body {
     border-bottom: solid;
 }
 
-#customer>div {
+/*This div is the element that contains the customer text*/
+#top>div {
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 #customerText {
-border-radius: 30px;
+    border-radius: 30px;
     background-color: darkslateblue;
     color: white;
     padding: 10px;
@@ -32,37 +34,60 @@ border-radius: 30px;
     color: whitesmoke;
     background-color: rgb(2, 194, 2);
     border-radius: 5px;
-    border: none;
+    border: solid 3px;
+    border-color: green;
 }
 
+/* This styling centers the text in the button*/
 #orderbtn>h3 {
     margin: 0;
 }
 
 #orderbtn:active {
     background-color: green;
+    border-color: rgb(2, 194, 2);
 }
 
-main{
+/*The main content of the page*/
+main {
     display: flex;
+    height: 100%;
 }
 
 nav {
-    width: 15%;
+    width: 10%;
+    height: 40mm;
     border-width: 2px;
-    border: solid;
-    border-color: darkcyan;
+    
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content:space-evenly;    
+}
+
+nav > h3 {
+    text-align: center;
+    margin:0;
+    width: 80%;
+    background-color:gainsboro ;
+    border: solid rgb(120, 120, 120) 2px;
 }
 
 #food {
-    width: 55%;
-    border: solid cornsilk;
+    width: 65%;
+    border-right: solid;
+    border-left: solid;
+    border-color: gainsboro;
     border-width: 3px;
 }
-
+    
 #cart {
-    width: 30%;
-    border-color:blueviolet;
-    border: solid;
-    border-width: 1px;
+    width: 25%;
+    /* background-color: lavender; */
+    border-width: 2px;
+}
+
+#cart>h1 {
+    text-align: center;
+    margin: 10px 0 2mm 0;
 }
