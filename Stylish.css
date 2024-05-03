@@ -1,5 +1,4 @@
 body {
-
     margin: 5mm;
     width: 1500px;
     height: 17cm;
@@ -9,7 +8,6 @@ body {
 #top {
     display: flex;
     justify-content: end;
-    align-items: center;
     height: 15mm;
     border-bottom: solid;
 }
@@ -21,11 +19,17 @@ body {
     justify-content: center;
 }
 
-#customerText {
+#customer  {
+    margin: 0;
     border-radius: 30px;
     background-color: darkslateblue;
     color: white;
-    padding: 10px;
+    height: 12mm;
+    border: solid;
+    border-color: lightsteelblue;
+    padding: 0 4mm 0 4mm;
+    display: flex;
+    align-items: center;
 }
 
 #orderbtn {
@@ -58,18 +62,18 @@ nav {
     width: 10%;
     height: 40mm;
     border-width: 2px;
-    
-    display:flex;
+
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content:space-evenly;    
+    justify-content: space-evenly;
 }
 
-nav > h3 {
+nav>h3 {
     text-align: center;
-    margin:0;
+    margin: 0;
     width: 80%;
-    background-color:gainsboro ;
+    background-color: gainsboro;
     border: solid rgb(120, 120, 120) 2px;
 }
 
@@ -80,7 +84,7 @@ nav > h3 {
     border-color: gainsboro;
     border-width: 3px;
 }
-    
+
 #cart {
     width: 25%;
     /* background-color: lavender; */
