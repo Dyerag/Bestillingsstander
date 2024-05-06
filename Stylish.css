@@ -111,11 +111,17 @@ main {
 }
 
 .menu{
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto;
 }
 
 .menu>div{
     border: solid;
+}
+
+.itemName {
+margin: 0;
+padding: 0;
 }
 
 #cart {

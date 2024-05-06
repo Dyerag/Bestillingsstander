@@ -22,7 +22,7 @@ const mainCourses = [
     }
 ];
 const drinks = [{
-    Drink: "COCA-COLA",
+    drink: "COCA-COLA",
     price: 32
 }, {
     drink: "FUZE TEA FERSKEN",
@@ -77,24 +77,36 @@ function updateCustomerNumber() {
 }
 
 function renderMenu() {
-    let option;
-    let elementLocation;
-
     mainCourses.forEach(function (course) {
-        option = document.createElement('div');
-        elementLocation = document.getElementById('maincourse');
+        let option = document.createElement('div');
+        let elementLocation = document.getElementById('maincourse');
 
-        let optionName = document.createElement('div');
+        let optionName = document.createElement('h4');
         optionName.innerText = course.Meal;
+        option.setAttribute('class','itemName')
 
         let optionPrice = document.createElement('div');
-        optionPrice.innerText = "Pris: "+course.price;
+        optionPrice.innerText = "Pris: " + course.price;
 
-        option.append(course.Meal,optionPrice);
+        option.append(optionName, optionPrice);
 
         elementLocation.appendChild(option);
     })
 
+    drinks.forEach(function (drink) {
+        let option = document.createElement('div');
+        let elementLocation = document.getElementById('drink');
+
+        let optionName = document.createElement('h4');
+        optionName.innerText = drink.drink;
+
+        let optionPrice = document.createElement('div');
+        optionPrice.innerText = "Pris: " + drink.price;
+
+        option.append(optionName, optionPrice);
+
+        elementLocation.appendChild(option);
+    })
 };
 
 renderMenu();
