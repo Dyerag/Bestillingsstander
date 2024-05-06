@@ -1,0 +1,24 @@
+{
+    "mainCourse": [
+        {
+            "name": "HOMESTYLE PEBERSAUCE",
+            "price": 77
+        },
+        {
+            "name": "DOUBLE CHEESEBURGER",
+            "price": 30
+        },
+        {
+            "name": "BIG MAC MENU",
+            "price": 103
+        },
+        {
+            "name": "2 x DIJON CHICKEN CHEESE MENU",
+            "price": 96
+        },
+        {
+            "name": "MIXED TEAMBOX MENU",
+            "price": 124
+        }
+    ]
+}
