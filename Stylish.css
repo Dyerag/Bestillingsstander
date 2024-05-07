@@ -1,7 +1,7 @@
 body {
     margin: 5mm;
-    width: 1500px;
-    height: 17cm;
+    /* width: 1500px; */
+    /* height: 17cm; */
 }
 
 /*The base styling for the customer number and order button */
@@ -73,9 +73,8 @@ main {
 }
 
 #previousOrders>h1 {
-    margin: 0;
+    margin: 10px 0 0 0;
     text-align: center;
-    padding-top: 10px;
 }
 
 /*Unfinished*/
@@ -144,7 +143,8 @@ main {
 
 #cart>h1 {
     text-align: center;
-    margin: 0 0 2mm 0;
+    margin: 10px 0 10px 0;
+    
 }
 
 #cartItems {
@@ -160,4 +160,11 @@ main {
     margin-left: 10px;
     color: red;
     background-color: aliceblue;
+}
+
+.cartItem{
+    text-align: center;
+    border: solid;
+    border-width: 1px;
+    margin: 0 0 12px 12px;
 }

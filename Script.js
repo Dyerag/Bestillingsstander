@@ -4,108 +4,102 @@ let customerNumber = 0; /*starts at zero, because the function that writes it on
 /*All of the object variables have the same name, so that they can all be run through the rendermMenu function*/
 /*All the objects have a section variable, so that the renderMenu function knows
 where to put them on the page once they're made into elements */
-const mainCourses = [
+const MenuItems = [
     {
         name: "HOMESTYLE PEBERSAUCE",
-        price: 77,
+        price: 77.00,
         section: "maincourse",
         id: 1
     },
     {
         name: "DOUBLE CHEESEBURGER",
-        price: 30,
+        price: 30.00,
         section: "maincourse",
         id: 2
     },
     {
         name: "BIG MAC MENU",
-        price: 103,
+        price: 103.00,
         section: "maincourse",
         id: 3
     },
     {
         name: "2 x DIJON CHICKEN CHEESE MENU",
-        price: 96,
+        price: 96.00,
         section: "maincourse",
         id: 4
     },
     {
         name: "MIXED TEAMBOX MENU",
-        price: 124,
+        price: 124.00,
         section: "maincourse",
         id: 5
-    }
-];
-const drinks = [{
-    name: "COCA-COLA",
-    price: 32,
-    section: "drink",
-    id: 6
-}, {
-    name: "FUZE TEA FERSKEN",
-    price: 32,
-    section: "drink",
-    id: 7
-}, {
-    name: "MILKSHAKE M. JORDBÆRSMAG",
-    price: 35,
-    section: "drink",
-    id: 8
-}, {
-    name: "MILKSHAKE M. CHOKOLADESMAG",
-    price: 35,
-    section: "drink",
-    id: 9
-}, {
-    name: "SHAKESPRESSO",
-    price: 42,
-    section: "drink",
-    id: 10
-}
-];
-const desserts = [{
-    name: "SUNDAE MED KARAMEL",
-    price: 26,
-    section: "desert",
-    id: 11
-}, {
-    name: "MCFLURRY KARAMEL & POPCORNSMAG",
-    price: 35,
-    section: "desert",
-    id: 12
-}, {
-    name: "OREO MUFFIN",
-    price: 20,
-    section: "desert",
-    id: 13
-}, {
-    name: "CHOKOLADE DONUT",
-    price: 13,
-    section: "desert",
-    id: 14
-},
-];
-const accessories = [{
-    name: "POMMES FRITES",
-    price: 31,
-    section: "addition",
-    id: 15
-}, {
-    name: "BARBEQUE",
-    price: 8,
-    section: "addition",
-    id: 16
-}, {
-    name: "SPICY CHICKEN MCNUGGETS 6 stk.",
-    price: 47,
-    section: "addition",
-    id: 17
-}, {
-    name: "CHILI CHEESE TOPS TEAM BOX",
-    price: 69,
-    section: "addition",
-    id: 18
-},
+    }, {
+        name: "COCA-COLA",
+        price: 32.00,
+        section: "drink",
+        id: 6
+    }, {
+        name: "FUZE TEA FERSKEN",
+        price: 32.00,
+        section: "drink",
+        id: 7
+    }, {
+        name: "MILKSHAKE M. JORDBÆRSMAG",
+        price: 35.00,
+        section: "drink",
+        id: 8
+    }, {
+        name: "MILKSHAKE M. CHOKOLADESMAG",
+        price: 35.00,
+        section: "drink",
+        id: 9
+    }, {
+        name: "SHAKESPRESSO",
+        price: 42.00,
+        section: "drink",
+        id: 10
+    }, {
+        name: "SUNDAE MED KARAMEL",
+        price: 26.00,
+        section: "desert",
+        id: 11
+    }, {
+        name: "MCFLURRY KARAMEL & POPCORNSMAG",
+        price: 35.00,
+        section: "desert",
+        id: 12
+    }, {
+        name: "OREO MUFFIN",
+        price: 20.00,
+        section: "desert",
+        id: 13
+    }, {
+        name: "CHOKOLADE DONUT",
+        price: 13.00,
+        section: "desert",
+        id: 14
+    }, {
+        name: "POMMES FRITES",
+        price: 31.00,
+        section: "addition",
+        id: 15
+    }, {
+        name: "BARBEQUE",
+        price: 8.00,
+        section: "addition",
+        id: 16
+    }, {
+        name: "SPICY CHICKEN MCNUGGETS 6 stk.",
+        price: 47.00,
+        section: "addition",
+        id: 17
+    }, {
+        name: "CHILI CHEESE TOPS TEAM BOX",
+        price: 69.00,
+        section: "addition",
+        id: 18
+    },
 ];
 /*List of items picke by the user*/
 let orderList = [];
@@ -129,53 +123,91 @@ function renderMenu(menuList) {
         /*Gives the menu item the class called item*/
         option.setAttribute('class', 'item');
 
+        //The name of the food item is being put in an element for stylisation purposes
         let optionName = document.createElement('h5');
         optionName.innerText = item.name;
         optionName.setAttribute('class', 'itemName');
 
+        //The price is in an element to be styled on
         let optionPrice = document.createElement('div');
-        optionPrice.innerText = "Pris: " + item.price;
+        //toFixed shows the decimals
+        optionPrice.innerText = item.price.toFixed(2) + ' Kr.';
         /*The Price also gets a class, just in case i need to change the styling of it later */
         optionPrice.setAttribute('class', 'itemPrice');
 
-        option.append(optionName, optionPrice);
+        /*The option button is given the id belonging to the food item it's tied to */
+        //The name and price are given the id aswell, because clicking them gives their data instead of the buttons 
+        option.id = item.id;
+        optionName.id = item.id;
+        optionPrice.id = item.id;
+
+        option.appendChild(optionName)
+        option.appendChild(optionPrice);
         option.onclick = addToOrderList;
-        option.id = item.id
 
         elementLocation.appendChild(option);
     });
 };
 
 function addToOrderList(event) {
-    console.log(event);
+    const button = event.target;
+    const itemId = button.id;
 
+    const addToCart = MenuItems.find(function (item) {
+        //number converts its arguments into number values. It's use here, because the id gotten from the butten is a string
+        if (item.id == itemId) {
+            return true
+        }
+        else {
+            return false
+        }
+    });
+
+    orderList.push(addToCart);
     renderOrderlist();
 }
 
 function renderOrderlist() {
-    // document.getElementById('cartItems').innerText = "";
-    let cart = document.getElementById('cartItems');
-    cart.innerHTML = '';
+    document.getElementById('cartItems').innerText = "";
+    let destination = document.getElementById('cartItems');    
 
-    let content = document.createElement('div');
-
-    if (orderList.length == 0) {
+    if (orderList.length === 0) {
         /*Make it write that there is nothing in the cart when the cart is empty*/
+        let content = document.createElement('div');
         content.innerText = 'Der er ikke lagt noget i kurven';
         content.setAttribute('id', 'empty');
 
-        cart.appendChild(content);
+        destination.appendChild(content);
     }
     else {
         /* Render the contents of the cart on the cart section of the page*/
         orderList.forEach(function (item) {
-            const remove = document.createElement('button');
+            //The item thats added to the cart
+            //need to give it an id for the delete button
+            let render = document.createElement('div');
+            render.setAttribute('class', 'cartItem');
+            // render.setAttribute('id', 'addedToCart');
 
-            remove.setAttribute('class', "remove");
-            remove.innerText = '-';
-            remove.onclick = removeFromCart;
+            let name = document.createElement('h5');
+            name.innerText = item.name;
+            name.setAttribute('class', 'itemName');
 
-            item.appendChild(remove);
+            let price = document.createElement('div');
+            price.innerText = item.price.toFixed(2) + ' Kr.';
+
+
+
+            //the delete butten section
+            // const remove = document.createElement('button');
+            // remove.setAttribute('class', "remove");
+            // remove.innerText = '-';
+            // remove.onclick = removeFromCart;
+            // item.append(remove);
+
+            render.appendChild(name);
+            render.appendChild(price);
+
+            cart.appendChild(render)
         });
     };
 }
@@ -188,7 +220,4 @@ function removeFromCart() {
 renderOrderlist();
 updateCustomerNumber();
 
-renderMenu(mainCourses);
-renderMenu(drinks);
-renderMenu(desserts);
-renderMenu(accessories);
+renderMenu(MenuItems);
