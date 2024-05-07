@@ -139,10 +139,25 @@ main {
 #cart {
     width: 18%;
     /* background-color: lavender; */
-    border-width: 2px;
+    /* margin: 5px 10px 0 10px; */
 }
 
 #cart>h1 {
     text-align: center;
-    margin: 10px 0 2mm 0;
+    margin: 0 0 2mm 0;
+}
+
+#cartItems {
+    display: grid;
+    justify-content: center;
+}
+
+#empty {
+    color: gray;
+}
+
+.remove {
+    margin-left: 10px;
+    color: red;
+    background-color: aliceblue;
 }
