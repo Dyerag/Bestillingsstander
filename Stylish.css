@@ -32,6 +32,10 @@ body {
     align-items: center;
 }
 
+#customerText {
+    white-space: pre;
+}
+
 #orderbtn {
     height: 12mm;
     width: 40mm;
@@ -55,11 +59,10 @@ body {
 /*The main content of the page*/
 main {
     display: flex;
-    height: 100%;
 }
 
 #previousOrders {
-    width: 8%;
+    width: 12%;
     padding: 0;
     border-width: 2px;
     align-items: center;
@@ -76,7 +79,7 @@ main {
 }
 
 /*Unfinished*/
-#previousOrders>div{
+#previousOrders>div {
     align-items: center;
     text-align: center;
     display: flex;
@@ -85,47 +88,56 @@ main {
 }
 
 /*unfinished*/
-#previousOrders>div>h4{
+#previousOrders>div>h4 {
     margin: 5px 0 0 0;
 }
 
 /*not in use*/
 #previousOrders>h3 {
     text-align: center;
-    margin: 0;
     width: 80%;
     background-color: gainsboro;
     border: solid rgb(120, 120, 120) 2px;
 }
 
 #food {
-    width: 65%;
+    width: 70%;
     border-right: solid;
     border-left: solid;
     border-color: gainsboro;
     border-width: 3px;
 }
 
-.menuName{
+.menuName {
     background-color: lightgray;
+    margin: 0 0 13px 0;
 }
 
-.menu{
+.menu {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 50mm 50mm 50mm 50mm;
+    justify-content: space-around;
+    align-content: space-around;
+    /* height: 4cm; */
 }
 
-.menu>div{
-    border: solid;
+.item {
+    background-color: whitesmoke;
+    margin: 0 0 20px 0;
+    text-align: center;
+}
+
+.item:active {
+    /* border: none; */
+    background-color: wheat;
 }
 
 .itemName {
-margin: 0;
-padding: 0;
+    margin: 0 0 5px;
 }
 
 #cart {
-    width: 25%;
+    width: 18%;
     /* background-color: lavender; */
     border-width: 2px;
 }
