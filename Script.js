@@ -1,5 +1,4 @@
 let customerNumber = 0; /*starts at zero, because the function that writes it on the page, begins by increasing it by 1.*/
-
 /*The menu items has been hardcoded into the script, because i couldn't get the script to read a json file.*/
 /*All of the object variables have the same name, so that they can all be run through the rendermMenu function*/
 /*All the objects have a section variable, so that the renderMenu function knows
@@ -103,6 +102,7 @@ const MenuItems = [
 ];
 /*List of items picke by the user*/
 let orderList = [];
+let lastOrders;
 
 /*Writes the customer number at the top of the page after incremanting it by 1*/
 function updateCustomerNumber() {
@@ -169,7 +169,7 @@ function addToOrderList(event) {
 
 function renderOrderlist() {
     document.getElementById('cartItems').innerText = "";
-    let destination = document.getElementById('cartItems');    
+    let destination = document.getElementById('cartItems');
 
     if (orderList.length === 0) {
         /*Make it write that there is nothing in the cart when the cart is empty*/
@@ -195,29 +195,52 @@ function renderOrderlist() {
             let price = document.createElement('div');
             price.innerText = item.price.toFixed(2) + ' Kr.';
 
-
-
-            //the delete butten section
-            // const remove = document.createElement('button');
-            // remove.setAttribute('class', "remove");
-            // remove.innerText = '-';
-            // remove.onclick = removeFromCart;
-            // item.append(remove);
+            //The butten to delete it from the cart
+            const remove = document.createElement('button');
+            remove.setAttribute('class', "remove");
+            remove.id = item.id
+            remove.innerText = '-';
+            remove.onclick = removeFromCart;
 
             render.appendChild(name);
             render.appendChild(price);
+            render.append(remove);
 
-            cart.appendChild(render)
+            destination.appendChild(render);
         });
+        calculatePrice();
     };
 }
 
-function removeFromCart() {
+function calculatePrice() {
+    let temp = 0;
+    orderList.forEach((item) => {
+        temp += item.price;
+    });
+    ordercost = temp;
+}
+
+function removeFromCart(event) {
+    const button = event.target;
+    const id = button.id;
+
+    orderList = orderList.filter((item) => item.id != id)
 
     renderOrderlist();
+}
+
+function cashOut() {
+    let ordercost = calculatePrice();
+    const completedOrder = {
+        customerNumber: customerNumber,
+        cart: orderList,
+        cost: this.ordercost.toFixed(2)
+    }
+    alert(`Kundenummer: ${completedOrder.customerNumber}\nAntal i Kurv: ${completedOrder.cart.length}\nTotal Pris: ${this.ordercost.toFixed(2)} kr.`)
 }
 
 renderOrderlist();
 updateCustomerNumber();
 
 renderMenu(MenuItems);
+

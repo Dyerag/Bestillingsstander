@@ -78,7 +78,7 @@ main {
 }
 
 /*Unfinished*/
-#previousOrders>div {
+#lastOrders {
     align-items: center;
     text-align: center;
     display: flex;
